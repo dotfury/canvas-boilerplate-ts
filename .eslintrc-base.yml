@@ -1,0 +1,30 @@
+rules:
+  max-len:
+    - error
+    - { code: 120 }
+
+  comma-dangle:
+    - error
+    - never
+
+  operator-linebreak: off
+  implicit-arrow-linebreak: off # "below" cause shorter line to be multiple line while "beside" cause max-len issue
+  no-continue: off # we allow to use continue
+  no-prototype-builtins: off # we allow to use built-in prototype method
+  object-curly-newline: # a little too much when everything fits in one line perfectly
+    - error
+    - ObjectExpression: { multiline: true, consistent: true }
+      ObjectPattern: { multiline: true, consistent: true }
+      ImportDeclaration: { multiline: true, consistent: true }
+      ExportDeclaration: { multiline: true, consistent: true }
+
+  import/no-extraneous-dependencies:
+    - error
+    - devDependencies: true # Nodejs script can use devDependencies modules
+
+  import/extensions: off
+
+  no-console: off # Nodejs script needs to output.
+
+  # TODO: votes
+  no-restricted-syntax: off

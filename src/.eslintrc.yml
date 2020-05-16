@@ -1,0 +1,48 @@
+extends:
+  - airbnb
+  - ../.eslintrc-base.yml
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
+  - prettier
+
+env:
+  browser: true
+  node: false
+
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2018
+  sourceType: module
+
+settings:
+  import/resolver: webpack # requires npm package "eslint-import-resolver-webpack"
+
+rules:
+  react/jsx-filename-extension: off # allow jsx in typescript files
+  react/jsx-props-no-spreading: off
+  react/static-property-placement: warn
+  semi: off # turn it off as we use the typescript one (see below)
+  '@typescript-eslint/indent':
+    - error
+    - 2
+  '@typescript-eslint/camelcase': off # APIs require camelcase names
+  '@typescript-eslint/semi': error
+  import/no-extraneous-dependencies:
+    - error
+
+  # There's a case that needs to support unused arguments (e.g. _props: RouteComponentProps)
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - argsIgnorePattern: ^_
+
+  no-console: error
+
+  # TODO
+  react/sort-comp: off
+  '@typescript-eslint/explicit-function-return-type': off
