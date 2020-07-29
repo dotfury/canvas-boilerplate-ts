@@ -127,6 +127,21 @@ const multipleCurves = (points: Point[], context: CanvasRenderingContext2D) => {
 
 const zSort = (objectA: Object3D, objectB: Object3D) => objectB.z - objectA.z;
 
+const easeToObject = (x: number, y: number, target: Point, ease: number) => {
+  return {
+    x: (target.x - x) * ease,
+    y: (target.y - y) * ease
+  };
+};
+
+const randomColor = () => {
+  const r = Math.floor(Math.random() * 255);
+  const g = Math.floor(Math.random() * 255);
+  const b = Math.floor(Math.random() * 255);
+
+  return `rgb(${r}, ${g}, ${b})`;
+};
+
 export default {
   normalize,
   lerp,
@@ -152,5 +167,7 @@ export default {
   quadraticBezier,
   cubicBezier,
   multipleCurves,
-  zSort
+  zSort,
+  easeToObject,
+  randomColor
 };
