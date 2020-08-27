@@ -13,14 +13,14 @@ export default class Particle {
   protected _gravitations: Particle[];
   bounce: number;
 
-  constructor(x = 0, y = 0, speed = 0, direction = 0, gravity = 0, mass = 1) {
+  constructor(x = 0, y = 0, radius = 0, speed = 0, direction = 0, gravity = 0, mass = 1) {
     this._x = x;
     this._y = y;
     this._vx = Math.cos(direction) * speed;
     this._vy = Math.sin(direction) * speed;
     this._gravity = gravity;
     this._mass = mass;
-    this._radius = 0;
+    this._radius = radius;
     this._speed = speed;
     this._heading = 0;
     this._friction = 1;
@@ -192,6 +192,25 @@ export default class Particle {
     const dy = particle.y - this.y;
 
     return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  public boundaryBounce(width: number, height: number) {
+    if (this.x + this.radius >= width) {
+      this.x = width - this.radius;
+      this.vx *= this.bounce;
+    }
+    if (this.x - this.radius <= 0) {
+      this.x = this.radius;
+      this.vx *= this.bounce;
+    }
+    if (this.y + this.radius >= height) {
+      this.y = height - this.radius;
+      this.vy *= this.bounce;
+    }
+    if (this.y - this.radius <= 0) {
+      this.y = this.radius;
+      this.vy *= this.bounce;
+    }
   }
 
   private gravitateTo(target: Particle) {
