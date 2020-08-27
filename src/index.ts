@@ -1,7 +1,6 @@
 import '../src/styles/app.scss';
 
-// import Springs from './apps/springs';
-import Tween from './apps/tween';
+import ParticlesEffect from './apps/particleseffect';
 
 window.onload = function() {
   const canvas = <HTMLCanvasElement>document.getElementById('canvas');
@@ -9,9 +8,6 @@ window.onload = function() {
   const width = (canvas.width = window.innerWidth);
   const height = (canvas.height = window.innerHeight);
 
-  // const springs = new Springs(canvas, context, width, height);
-  // springs.run();
-
-  const tween = new Tween(canvas, context, width, height);
-  tween.run();
+  const particles = new ParticlesEffect(canvas, context, width, height);
+  particles.run();
 };
