@@ -9,6 +9,7 @@ export default class Particle {
   private _speed: number;
   private _heading: number;
   private _friction: number;
+  private _color: string;
   protected _springs: Spring[];
   protected _gravitations: Particle[];
   bounce: number;
@@ -26,6 +27,7 @@ export default class Particle {
     this._friction = 1;
     this._springs = [];
     this._gravitations = [];
+    this._color = 'black';
     this.bounce = -1;
   }
 
@@ -145,6 +147,14 @@ export default class Particle {
 
     this._vx = Math.cos(heading) * speed;
     this._vy = Math.sin(heading) * speed;
+  }
+
+  get color(): string {
+    return this._color;
+  }
+
+  set color(color: string) {
+    this._color = color;
   }
 
   public accelerate(ax: number, ay: number) {
