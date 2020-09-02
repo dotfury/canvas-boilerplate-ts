@@ -1,6 +1,6 @@
 import '../src/styles/app.scss';
 
-import ParticlesEffect from './apps/particleseffect';
+import Clouds from './apps/clouds';
 
 window.onload = function() {
   const canvas = <HTMLCanvasElement>document.getElementById('canvas');
@@ -8,6 +8,6 @@ window.onload = function() {
   const width = (canvas.width = window.innerWidth);
   const height = (canvas.height = window.innerHeight);
 
-  const particles = new ParticlesEffect(canvas, context, width, height);
+  const particles = new Clouds(canvas, context, width, height);
   particles.run();
 };
