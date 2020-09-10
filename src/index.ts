@@ -1,6 +1,6 @@
 import '../src/styles/app.scss';
 
-import Clouds from './apps/clouds';
+import App from './apps/backgrounds';
 
 window.onload = function() {
   const canvas = <HTMLCanvasElement>document.getElementById('canvas');
@@ -8,6 +8,6 @@ window.onload = function() {
   const width = (canvas.width = window.innerWidth);
   const height = (canvas.height = window.innerHeight);
 
-  const particles = new Clouds(canvas, context, width, height);
-  particles.run();
+  const app = new App(canvas, context, width, height);
+  app.run();
 };

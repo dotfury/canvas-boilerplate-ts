@@ -1,5 +1,5 @@
 interface Circle {
-  x: number;
-  y: number;
+  x: number | any;
+  y: number | any;
   radius: number;
 }
