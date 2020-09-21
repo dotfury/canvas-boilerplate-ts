@@ -1,4 +1,3 @@
-// 12:00
 import Particle from '../../classes/particle';
 
 import { circleCollision, map } from '../../utils';

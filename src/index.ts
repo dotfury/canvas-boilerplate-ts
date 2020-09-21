@@ -1,6 +1,6 @@
 import '../src/styles/app.scss';
 
-import App from './apps/backgrounds';
+import App from './apps/stars';
 
 window.onload = function() {
   const canvas = <HTMLCanvasElement>document.getElementById('canvas');
