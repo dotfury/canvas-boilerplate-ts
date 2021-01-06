@@ -28,7 +28,7 @@
     "@types/qs": "^6.5.3",
     "@typescript-eslint/eslint-plugin": "^1.4.2",
     "@typescript-eslint/parser": "^2.18.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-eslint": "9.x",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
